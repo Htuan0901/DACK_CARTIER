@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f8f8f8;
+            color: #8B4513; /* Thay đổi màu chữ sang nâu */
+        }
+        .top-line {
+            background-color: #000;
+            height: 3px; /* Adjusted height for a slightly thicker line */
+        }
+        .main-header {
+            background-color: #fff;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .header-icon {
+            color: #8B4513; /* Thay đổi màu icon sang nâu */
+            font-size: 1.1em;
+            text-decoration: none;
+        }
+        .header-icon:hover {
+            color: #654321; /* Màu nâu đậm hơn khi hover */
+        }
+        .logo-link {
+            text-decoration: none;
+            color: inherit; /* Inherit color so text inside link doesn't default to blue */
+        }
+        .logo {
+            width: 60px; /* Adjusted size to be smaller, more like a logo in the image */
+            height: auto;
+            margin-bottom: 5px; /* Space between logo image and text */
+        }
+        .logo-text {
+            font-size: 1.2em; /* Smaller font size for logo text */
+            font-weight: 700;
+            color: #8B4513; /* Thay đổi màu logo text sang nâu */
+            display: block; /* Ensure it takes full width */
+            text-transform: uppercase; /* As seen in the image */
+            letter-spacing: 1px;
+        }
+        .tagline {
+            font-size: 0.7em; /* Smaller tagline */
+            color: #A0522D; /* Thay đổi màu tagline sang nâu nhạt hơn */
+            display: block;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .main-nav {
+            background-color: #fff; /* Thay đổi background navigation sang trắng */
+            color: #8B4513; /* Màu chữ nâu cho nav */
+            padding: 10px 0;
+            font-weight: 600;
+            border-bottom: 1px solid #eee; /* Thêm đường kẻ dưới nav */
+        }
+        .main-nav .nav-link {
+            color: #8B4513; /* Thay đổi màu link sang nâu */
+            padding: 8px 25px; /* Tăng khoảng cách ngang để các mục trải rộng hơn */
+            font-size: 0.95em;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+        .main-nav .nav-link.active,
+        .main-nav .nav-link:hover {
+            background-color: transparent; /* Loại bỏ màu nền khi active/hover */
+            color: #8B4513; /* Giữ màu chữ nâu */
+            border-radius: 0;
+            border-bottom: 2px solid #8B4513; /* Thêm gạch chân màu nâu */
+        }
+        .hero-section {
+            position: relative;
+            height: 600px; /* Adjust height as needed */
+            background-image: url('https://images.unsplash.com/photo-1544390025-a4b5d2d9c1b7?q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1920&h=600&fit=crop'); /* Updated placeholder image from Unsplash */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-align: center;
+            filter: grayscale(10%); /* Subtle grayscale effect */
+        }
+        
+        /* Banner lớn - Hero Section */
+        .banner-lon {
+            position: relative;
+            height: 400px;
+            background-image: url('https://file.hstatic.net/1000373601/article/sca-800x450_1f0b8e50e28e414bbc59fa52a7884cbf.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-align: center;
+            overflow: hidden;
+        }
+        
+        .banner-lon::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: 1;
+        }
+        
+        .banner-lon-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+        
+        .banner-lon h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+            letter-spacing: 2px;
+        }
+        
+        .banner-lon p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+        }
+        
+        .banner-lon .btn {
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #333;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+        
+        .banner-lon .btn:hover {
+            background-color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        
+        /* Responsive cho banner lớn */
+        @media (max-width: 768px) {
+            .banner-lon {
+                height: 400px;
+            }
+            
+            .banner-lon h1 {
+                font-size: 2.5rem;
+            }
+            
+            .banner-lon p {
+                font-size: 1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .banner-lon {
+                height: 300px;
+            }
+            
+            .banner-lon h1 {
+                font-size: 2rem;
+            }
+        }
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.2); /* Dark overlay */
+        }
+        .hero-content {
+            z-index: 1;
+        }
+        .hero-content h1 {
+            font-size: 4em;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        .breadcrumbs {
+            background-color: #f2f2f2;
+            padding: 15px 0;
+            font-size: 0.9em;
+            color: #8B4513; /* Thay đổi màu breadcrumbs sang nâu */
+        }
+        .breadcrumbs a {
+            color: #8B4513; /* Thay đổi màu link breadcrumbs sang nâu */
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+            color: #654321; /* Màu nâu đậm hơn khi hover */
+        }
+        .collection-title {
+            font-size: 2em;
+            font-weight: 600;
+            margin-bottom: 25px;
+            margin-top: 25px;
+            color: #8B4513; /* Thay đổi màu tiêu đề collection sang nâu */
+        }
+        .product-grid {
+            margin-bottom: 50px;
+        }
+        .product-card {
+            background-color: #fff;
+            border: 1px solid #eee;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+        .product-card:hover {
+            box-shadow: 0 4px 8px rgba(139, 69, 19, 0.2); /* Thay đổi shadow sang màu nâu */
+        }
+        .product-card img {
+            width: 100%;
+            height: 250px; /* Fixed height for consistency */
+            object-fit: cover;
+            border-bottom: 1px solid #eee;
+        }
+        .product-card .card-body {
+            padding: 15px;
+            text-align: center;
+        }
+        .product-card .card-title {
+            font-size: 1.1em;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: #8B4513; /* Thay đổi màu tiêu đề sản phẩm sang nâu */
+        }
+        .product-card .card-text {
+            color: #A0522D; /* Thay đổi màu mô tả sản phẩm sang nâu nhạt */
+            font-size: 0.9em;
+        }
+        .form-section button {
+            background-color: #4a2601;
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            font-weight: 600;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-right: 10px;
+            margin-top: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .form-section button:hover {
+            background-color: #5c2d06;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-section {
+            background-color: #fff;
+            padding: 30px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            margin: 20px auto;
+            max-width: 500px;
+        }
+
+        .form-section input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-line"></div>
+
+    <!-- Main Header -->
+    <header class="main-header">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col d-flex align-items-center">
+                    <a href="dangnhap.html" class="header-icon"><i class="fas fa-user"></i></a>
+                    <div id="global-search-dropdown" style="position: absolute; right: 120px; top: 100px; z-index: 2000; min-width: 260px; background: #fff; border-radius: 10px; box-shadow: 0 2px 12px rgba(0,0,0,0.13); display: none; max-height: 350px; overflow-y: auto; border: 2px solid #8b5412;"></div>
+                </div>
+                <div class="col-auto logo-container">
+                    <a href="trangchu.html" class="logo-link text-center">
+                        <img src="test/Logo.png" alt="CARTIER Logo" class="logo d-block mx-auto">
+                        <span class="logo-text d-block"></span>
+                        <small class="tagline d-block"><strong>BE UNIQUE, BE DIFFERENT</strong></small>
+                    </a>
+                </div>
+                <div class="col d-flex justify-content-end">
+                    <input type="text" id="search-bar" class="form-control form-control-sm d-inline-block ms-2" placeholder="Tìm sản phẩm..." style="width: 180px; max-width: 40%; display: none; vertical-align: middle; height: 32px; padding: 2px 8px; font-size: 0.95em; border-radius: 16px; border: 1px solid #ccc; background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
+                    <a href="search.html" class="header-icon ms-3 search-toggle"><i class="fas fa-search"></i></a>
+                    <a href="giohang.html" class="header-icon" style="margin-left: 24px;"><i class="fas fa-box"></i></a>
+                </div>
+            </div>
+        </div>
+        <form id="search-form" class="d-none position-absolute top-100 start-0 w-100 p-3 bg-white shadow" style="z-index: 1050;">
+          <div class="container">
+            <div class="input-group">
+              <input type="text" class="form-control" id="search-input" placeholder="Tìm sản phẩm...">
+              <button class="btn btn-outline-secondary" type="submit">Tìm</button>
+            </div>
+          </div>
+        </form>
+    </header>
+
+    <!-- Main Navigation -->
+    <nav class="main-nav">
+        <div class="container">
+            <ul class="nav justify-content-center">
+                <li class="nav-item">
+                    <a class="nav-link" href="trangchu.html">TRANG CHỦ</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="trangsuc.html" id="navbarDropdownTrangSuc" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        TRANG SỨC
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownTrangSuc">
+                        <li><a class="dropdown-item" href="nhan.html">Nhẫn</a></li>
+                        <li><a class="dropdown-item" href="daychuyen.html">Dây chuyền</a></li>
+                        <li><a class="dropdown-item" href="dongho.html">Đồng hồ</a></li>
+                        <li><a class="dropdown-item" href="bongtai.html">Bông tai</a></li>
+                        <li><a class="dropdown-item" href="vongtay.html">Vòng tay</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="khuyenmai.html">KHUYẾN MÃI</a></li>
+                <li class="nav-item"><a class="nav-link" href="bosuutap.html">BỘ SƯU TẬP</a></li>
+                <li class="nav-item"><a class="nav-link" href="thongtin.html">THÔNG TIN</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">LIÊN HỆ</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="banner-lon">
+        <div class="banner-lon-content">
+           
+        </div>
+    </div>
+    <!-- Breadcrumbs -->
+    <div class="breadcrumbs">
+        <div class="container">
+            <a href="#"><i class="fas fa-home"></i> TRANG CHỦ</a> / ĐĂNG NHẬP TÀI KHOẢN
+        </div>
+    </div>
+
+    <!-- sign-up Section -->
+    <main class="main-content">
+  <div class="container">
+    <div class="form-section">
+      <h4>ĐĂNG NHẬP/ĐĂNG KÝ TÀI KHOẢN</h4>
+      <label for="email">Email *</label>
+      <input type="email" id="email" name="email">
+      
+      <label for="password">Mật khẩu *</label>
+      <input type="password" id="password" name="password">
+      
+      <button>Đăng nhập</button>
+      <button class="signup ">Đăng ký</button>
+    </div>
+
+    <div class="form-section">
+      <h4>Bạn quên mật khẩu? Nhập địa chỉ email để lấy lại mật khẩu email</h4>
+      <label for="recovery-email">Email *</label>
+      <input type="email" id="recovery-email" name="recovery-email">
+      <button>Lấy lại mật khẩu</button>
+    </div>
+  </div>
+</main>
+    <footer style="background-color: #8B4513; color: white; padding: 40px 0;">
+  <!-- Logo họa tiết nhỏ ở giữa phía trên -->
+  <div style="text-align: center; margin-top: -10px; margin-bottom: 20px;">
+  <img src="test/Logo.png" alt="Logo nhỏ" style="height: 100px;">
+  <p>DESIGN & MADE TO ORDER</p>
+    </div>
+
+  <!-- Các cột thông tin footer -->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-sm-6 mb-4">
+        <h5 class="text-uppercase"><strong>CSKH</strong></h5>
+        <ul>
+            <li>Hotline: 0123.456.789</li>
+            <li>📞 0123.456.789</li>
+            <li>Email: support@katjewelry.vn</li>
+            <li a href="#" style="color: white; text-decoration: underline;">Gửi yêu cầu hỗ trợ</a></li>
+        </ul>
+      </div>
+      <div class="col-md-3 col-sm-6 mb-4">
+        <h5 class="text-uppercase"><strong>CÔNG TY CHÚNG TÔI</strong></h5>
+        <ul>
+            <li>Tìm cửa hàng</li>
+            <li>Cơ hội nghề nghiệp</li>
+            <li>Cartier và Trách nhiệm xã hội doanh nghiệp</li>
+            <li>Ghi nhận công lao (Credits)</li>
+        </ul>
+      </div>
+      <div class="col-md-3 col-sm-6 mb-4">
+        <h5 class="text-uppercase"><strong>KHU VỰC PHÁP LÝ</strong></h5>
+        <ul>
+            <li>Điều khoản sử dụng</li>
+            <li>Chính sách bảo mật</li>
+            <li>Tuyên bố nhân quyền</li>
+            <li>Điều kiện bán hàng</li>
+        </ul>
+      </div>
+      <div class="col-md-3 col-sm-6 mb-4">
+        <h5 class="text-uppercase"><strong>ĐỊA CHỈ</strong></h5>
+        <ul>
+            <li>233A Phan Văn Trị, p.11, Q. Bình Thạnh, TP. Hồ Chí Minh</li>
+            <li>69/68 Đặng Thùy Trâm, p.13, Q. Bình Thạnh, TP. Hồ Chí Minh</li>
+            <li>45 Nguyễn Khắc Nhu, p. Cô Giang, Q. 1, TP. Hồ Chí Minh</li>
+        </ul>
+      </div>
+      <div style="text-align: center; margin-top: -10px; margin-bottom: 20px;">
+        <h5 class="text-uppercase"><strong>THEO DÕI CHÚNG TÔI</strong></h5>
+        <p>📷 Instagram 📘 Facebook  X (Twitter) </p>
+        <P>▶️ YouTube 📌 Pinterest</P>
+    </div>
+    </div>
+  </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

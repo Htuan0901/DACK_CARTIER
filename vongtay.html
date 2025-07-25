@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Trang sức - Cartier</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f8f8f8;
+            color: #8B4513;
+        }
+        .top-line {
+            background-color: #000;
+            height: 3px;
+        }
+        .main-header {
+            background-color: #fff;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .header-icon {
+            color: #8B4513;
+            font-size: 1.2em;
+            text-decoration: none; /* loại bỏ gạch chân */
+        }
+        .header-icon:hover {
+            color: #654321;
+        }
+        .logo {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 5px;
+        }
+        .logo-text {
+            font-size: 1.2em;
+            font-weight: 700;
+            color: #8B4513;
+            text-transform: uppercase;
+            display: block; /* Ensure it takes full width */
+            letter-spacing: 1px;
+        }
+        .tagline {
+            font-size: 13px;
+            color: #A0522D;
+            text-transform: uppercase;
+            display: block;
+            letter-spacing: 0.5px;
+        }
+        .main-header a {
+            text-decoration: none; /* bỏ gạch chân link bao quanh logo và text */
+            color: inherit;
+        }
+        .main-nav {
+            background-color: #fff;
+            color: #8B4513;
+            border-bottom: 1px solid #eee;
+            font-weight: 600;
+            padding: 10px 0;
+        }
+        .main-nav .nav-link {
+            color: #8B4513;
+            text-transform: uppercase;
+            padding: 8px 25px;
+            font-size: 1.07em;
+            text-decoration: none; /* loại bỏ gạch chân link menu */
+            transition: all 0.3s ease;
+        }
+        .main-nav .nav-link:hover,
+        .main-nav .nav-link.active {
+            border-bottom: 2px solid #8B4513;
+            background-color: transparent; /* Loại bỏ màu nền khi active/hover */
+            color: #8B4513; /* Giữ màu chữ nâu */
+            border-radius: 0;
+        }
+        .dropdown-menu {
+            font-size: 0.9em;
+        }
+        .breadcrumbs {
+            background-color: #f2f2f2;
+            padding: 10px 0;
+            font-size: 0.9em;
+        }
+        .breadcrumbs a {
+            color: #8B4513;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .collection-title {
+            font-size: 2em;
+            font-weight: 600;
+            margin-top: 25px;
+            margin-bottom: 20px;
+        }
+        .product-card {
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: 5px;
+        overflow: hidden;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+        .product-card:hover {
+            box-shadow: 0 4px 8px rgba(139, 69, 19, 0.2);
+        }
+        .product-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        .product-card .card-body {
+            text-align: center;
+        }
+
+        /* Phần quan trọng để đẩy footer xuống dưới */
+        .container.product-grid {
+            flex-grow: 1;
+        }
+
+        footer {
+            background-color: #8B4513;
+            color: white;
+            padding: 40px 0;
+        }
+        footer a {
+            color: white;
+            text-decoration: underline;
+        }
+        /* Custom product action button colors */
+        .product-actions .btn-outline-primary {
+            color: #8b5412;
+            border-color: #8b5412;
+        }
+        .product-actions .btn-outline-primary:hover {
+            background-color: #8b5412;
+            color: #fff;
+            border-color: #8b5412;
+        }
+        .product-actions .btn-primary {
+            background-color: #8b5412;
+            border-color: #8b5412;
+        }
+        .product-actions .btn-primary:hover {
+            background-color: #a05d16;
+            border-color: #a05d16;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-line"></div>
+
+    <!-- Header -->
+    <header class="main-header">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col d-flex align-items-center">
+                    <a href="dangnhap.html" class="header-icon"><i class="fas fa-user"></i></a>
+                    <div id="global-search-dropdown" style="position: absolute; right: 120px; top: 100px; z-index: 2000; min-width: 260px; background: #fff; border-radius: 10px; box-shadow: 0 2px 12px rgba(0,0,0,0.13); display: none; max-height: 350px; overflow-y: auto; border: 2px solid #8b5412;"></div>
+                </div>
+                <div class="col-auto logo-container">
+                    <a href="trangchu.html" class="logo-link text-center">
+                        <img src="test/Logo.png" alt="CARTIER Logo" class="logo d-block mx-auto">
+                        <span class="logo-text d-block"></span>
+                        <small class="tagline d-block"><strong>BE UNIQUE, BE DIFFERENT</strong></small>
+                    </a>
+                </div>
+                <div class="col d-flex justify-content-end">
+                    <input type="text" id="search-bar" class="form-control form-control-sm d-inline-block ms-2" placeholder="Tìm sản phẩm..." style="width: 180px; max-width: 40%; display: none; vertical-align: middle; height: 32px; padding: 2px 8px; font-size: 0.95em; border-radius: 16px; border: 1px solid #ccc; background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
+                    <a href="search.html" class="header-icon ms-3 search-toggle"><i class="fas fa-search"></i></a>
+                    <a href="giohang.html" class="header-icon" style="margin-left: 24px;"><i class="fas fa-box"></i></a>
+                </div>
+            </div>
+        </div>
+        <form id="search-form" class="d-none position-absolute top-100 start-0 w-100 p-3 bg-white shadow" style="z-index: 1050;">
+          <div class="container">
+            <div class="input-group">
+              <input type="text" class="form-control" id="search-input" placeholder="Tìm sản phẩm...">
+              <button class="btn btn-outline-secondary" type="submit">Tìm</button>
+            </div>
+          </div>
+        </form>
+    </header>
+
+    <!-- Main Navigation -->
+    <nav class="main-nav">
+        <div class="container">
+            <ul class="nav justify-content-center">
+                <li class="nav-item">
+                    <a class="nav-link" href="trangchu.html">TRANG CHỦ</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle active" href="trangsuc.html" id="navbarDropdownTrangSuc" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        TRANG SỨC
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownTrangSuc">
+                        <li><a class="dropdown-item" href="nhan.html">Nhẫn</a></li>
+                        <li><a class="dropdown-item" href="daychuyen.html">Dây chuyền</a></li>
+                        <li><a class="dropdown-item" href="dongho.html">Đồng hồ</a></li>
+                        <li><a class="dropdown-item" href="bongtai.html">Bông tai</a></li>
+                        <li><a class="dropdown-item" href="vongtay.html">Vòng tay</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="khuyenmai.html">KHUYẾN MÃI</a></li>
+                <li class="nav-item"><a class="nav-link" href="bosuutap.html">BỘ SƯU TẬP</a></li>
+                <li class="nav-item"><a class="nav-link" href="thongtin.html">THÔNG TIN</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">LIÊN HỆ</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumbs">
+        <div class="container">
+            <a href="trangchu.html"><i class="fas fa-home"></i> TRANG CHỦ</a> / TRANG SỨC / VÒNG TAY
+        </div>
+    </div>
+
+    <!-- Products Grid -->
+    <div class="container product-grid">
+        <h2 class="collection-title">Trang sức / Vòng tay</h2>
+        <div class="row">
+            <div class="col-md-3 col-sm-6">
+                <div class="product-card">
+                    <img src="img/vongtay/N2.png" alt="Vòng tay 1" />
+                    <div class="card-body">
+                        <h5 class="card-title">Vòng Tay Vàng Hạnh Phúc</h5>
+                        <p class="card-text">Thiết kế sang trọng, tinh tế.</p>
+                        <p class="product-price" data-price="2345" style="color: #000;">$2345</p>
+                        <div class="product-actions mt-2">
+                            <button class="btn btn-outline-primary btn-sm me-2 add-to-cart"
+                                data-id="1"
+                                data-name="Vòng Tay Vàng Hạnh Phúc"
+                                data-image="img/vongtay/N1.png">🛒</button>
+                            <button class="btn btn-primary btn-sm buy-now"
+                                data-id="1"
+                                data-name="Vòng Tay Vàng Hạnh Phúc"
+                                data-image="img/vongtay/N1.png">Mua ngay</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="product-card">
+                    <img src="img/vongtay/N6.png" alt="Vòng tay 2" />
+                    <div class="card-body">
+                        <h5 class="card-title">Vòng Tay Vàng Kim Tuyến</h5>
+                        <p class="card-text">Thiết kế sang trọng, tinh tế.</p>
+                        <p class="product-price" data-price="110">$110</p>
+                        <div class="product-actions mt-2">
+                            <button class="btn btn-outline-primary btn-sm me-2 add-to-cart"
+                                data-id="2"
+                                data-name="Vòng Tay Vàng Kim Tuyến"
+                                data-image="img/vongtay/N2.png">🛒</button>
+                            <button class="btn btn-primary btn-sm buy-now"
+                                data-id="2"
+                                data-name="Vòng Tay Vàng Kim Tuyến"
+                                data-image="img/vongtay/N2.png">Mua ngay</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="product-card">
+                    <img src="img/vongtay/N11.png" alt="Vòng tay 3" />
+                    <div class="card-body">
+                        <h5 class="card-title">Vòng Tay Vàng Phúc Lộc</h5>
+                        <p class="card-text">Thiết kế sang trọng, tinh tế.</p>
+                        <p class="product-price" data-price="120">$120</p>
+                        <div class="product-actions mt-2">
+                            <button class="btn btn-outline-primary btn-sm me-2 add-to-cart"
+                                data-id="3"
+                                data-name="Vòng Tay Vàng Phúc Lộc"
+                                data-image="img/vongtay/N3.png">🛒</button>
+                            <button class="btn btn-primary btn-sm buy-now"
+                                data-id="3"
+                                data-name="Vòng Tay Vàng Phúc Lộc"
+                                data-image="img/vongtay/N3.png">Mua ngay</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="product-card">
+                    <img src="img/vongtay/N19.png" alt="Vòng tay 4" />
+                    <div class="card-body">
+                        <h5 class="card-title">Vòng Tay Vàng Mặt Trời</h5>
+                        <p class="card-text">Thiết kế sang trọng, tinh tế.</p>
+                        <p class="product-price" data-price="130">$130</p>
+                        <div class="product-actions mt-2">
+                            <button class="btn btn-outline-primary btn-sm me-2 add-to-cart"
+                                data-id="4"
+                                data-name="Vòng Tay Vàng Mặt Trời"
+                                data-image="img/vongtay/N4.png">🛒</button>
+                            <button class="btn btn-primary btn-sm buy-now"
+                                data-id="4"
+                                data-name="Vòng Tay Vàng Mặt Trời"
+                                data-image="img/vongtay/N4.png">Mua ngay</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="product-card">
+                    <img src="img/vongtay/N1.png" alt="Vòng tay 5" />
+                    <div class="card-body">
+                        <h5 class="card-title">Vòng Tay Bạc Dịu Dàng</h5>
+                        <p class="card-text">Thiết kế sang trọng, tinh tế.</p>
+                        <p class="product-price" data-price="140">$140</p>
+                        <div class="product-actions mt-2">
+                            <button class="btn btn-outline-primary btn-sm me-2 add-to-cart"
+                                data-id="5"
+                                data-name="Vòng Tay Bạc Dịu Dàng"
+                                data-image="img/vongtay/N5.png">🛒</button>
+                            <button class="btn btn-primary btn-sm buy-now"
+                                data-id="5"
+                                data-name="Vòng Tay Bạc Dịu Dàng"
+                                data-image="img/vongtay/N5.png">Mua ngay</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="product-card">
+                    <img src="img/vongtay/N3.png" alt="Vòng tay 6" />
+                    <div class="card-body">
+                        <h5 class="card-title">Vòng Tay Bạc Hoa Tuyết</h5>
+                        <p class="card-text">Thiết kế sang trọng, tinh tế.</p>
+                        <p class="product-price" data-price="150">$150</p>
+                        <div class="product-actions mt-2">
+                            <button class="btn btn-outline-primary btn-sm me-2 add-to-cart"
+                                data-id="6"
+                                data-name="Vòng Tay Bạc Hoa Tuyết"
+                                data-image="img/vongtay/N6.png">🛒</button>
+                            <button class="btn btn-primary btn-sm buy-now"
+                                data-id="6"
+                                data-name="Vòng Tay Bạc Hoa Tuyết"
+                                data-image="img/vongtay/N6.png">Mua ngay</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="product-card">
+                    <img src="img/vongtay/N4.png" alt="Vòng tay 7" />
+                    <div class="card-body">
+                        <h5 class="card-title">Vòng Tay Bạc Sắc Thu</h5>
+                        <p class="card-text">Thiết kế sang trọng, tinh tế.</p>
+                        <p class="product-price" data-price="160">$160</p>
+                        <div class="product-actions mt-2">
+                            <button class="btn btn-outline-primary btn-sm me-2 add-to-cart"
+                                data-id="7"
+                                data-name="Vòng Tay Bạc Sắc Thu"
+                                data-image="img/vongtay/N7.png">🛒</button>
+                            <button class="btn btn-primary btn-sm buy-now"
+                                data-id="7"
+                                data-name="Vòng Tay Bạc Sắc Thu"
+                                data-image="img/vongtay/N7.png">Mua ngay</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="product-card">
+                    <img src="img/vongtay/N5.png" alt="Vòng tay 8" />
+                    <div class="card-body">
+                        <h5 class="card-title">Vòng Tay Bạc Cánh Chim</h5>
+                        <p class="card-text">Thiết kế sang trọng, tinh tế.</p>
+                        <p class="product-price" data-price="170">$170</p>
+                        <div class="product-actions mt-2">
+                            <button class="btn btn-outline-primary btn-sm me-2 add-to-cart"
+                                data-id="8"
+                                data-name="Vòng Tay Bạc Cánh Chim"
+                                data-image="img/vongtay/N8.png">🛒</button>
+                            <button class="btn btn-primary btn-sm buy-now"
+                                data-id="8"
+                                data-name="Vòng Tay Bạc Cánh Chim"
+                                data-image="img/vongtay/N8.png">Mua ngay</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="product-card">
+                    <img src="img/vongtay/N7.png" alt="Vòng tay 9" />
+                    <div class="card-body">
+                        <h5 class="card-title">Vòng Tay Bạc Giọt Nắng</h5>
+                        <p class="card-text">Thiết kế sang trọng, tinh tế.</p>
+                        <p class="product-price" data-price="180">$180</p>
+                        <div class="product-actions mt-2">
+                            <button class="btn btn-outline-primary btn-sm me-2 add-to-cart"
+                                data-id="9"
+                                data-name="Vòng Tay Bạc Giọt Nắng"
+                                data-image="img/vongtay/N9.png">🛒</button>
+                            <button class="btn btn-primary btn-sm buy-now"
+                                data-id="9"
+                                data-name="Vòng Tay Bạc Giọt Nắng"
+                                data-image="img/vongtay/N9.png">Mua ngay</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="product-card">
+                    <img src="img/vongtay/N8.png" alt="Vòng tay 10" />
+                    <div class="card-body">
+                        <h5 class="card-title">Vòng Tay Bạc Bình Minh</h5>
+                        <p class="card-text">Thiết kế sang trọng, tinh tế.</p>
+                        <p class="product-price" data-price="190">$190</p>
+                        <div class="product-actions mt-2">
+                            <button class="btn btn-outline-primary btn-sm me-2 add-to-cart"
+                                data-id="10"
+                                data-name="Vòng Tay Bạc Bình Minh"
+                                data-image="img/vongtay/N10.png">🛒</button>
+                            <button class="btn btn-primary btn-sm buy-now"
+                                data-id="10"
+                                data-name="Vòng Tay Bạc Bình Minh"
+                                data-image="img/vongtay/N10.png">Mua ngay</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="product-card">
+                    <img src="img/vongtay/N9.png" alt="Vòng tay 11" />
+                    <div class="card-body">
+                        <h5 class="card-title">Vòng Tay Bạc Gợn Sóng</h5>
+                        <p class="card-text">Thiết kế sang trọng, tinh tế.</p>
+                        <p class="product-price" data-price="200">$200</p>
+                        <div class="product-actions mt-2">
+                            <button class="btn btn-outline-primary btn-sm me-2 add-to-cart"
+                                data-id="11"
+                                data-name="Vòng Tay Bạc Gợn Sóng"
+                                data-image="img/vongtay/N11.png">🛒</button>
+                            <button class="btn btn-primary btn-sm buy-now"
+                                data-id="11"
+                                data-name="Vòng Tay Bạc Gợn Sóng"
+                                data-image="img/vongtay/N11.png">Mua ngay</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="product-card">
+                    <img src="img/vongtay/N10.png" alt="Vòng tay 12" />
+                    <div class="card-body">
+                        <h5 class="card-title">Vòng Tay Bạc Trăng Non</h5>
+                        <p class="card-text">Thiết kế sang trọng, tinh tế.</p>
+                        <p class="product-price" data-price="210">$210</p>
+                        <div class="product-actions mt-2">
+                            <button class="btn btn-outline-primary btn-sm me-2 add-to-cart"
+                                data-id="12"
+                                data-name="Vòng Tay Bạc Trăng Non"
+                                data-image="img/vongtay/N12.png">🛒</button>
+                            <button class="btn btn-primary btn-sm buy-now"
+                                data-id="12"
+                                data-name="Vòng Tay Bạc Trăng Non"
+                                data-image="img/vongtay/N12.png">Mua ngay</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="product-card">
+                    <img src="img/vongtay/N12.png" alt="Vòng tay 13" />
+                    <div class="card-body">
+                        <h5 class="card-title">Vòng Tay Bạc Hoa Mộng</h5>
+                        <p class="card-text">Thiết kế sang trọng, tinh tế.</p>
+                        <p class="product-price" data-price="220">$220</p>
+                        <div class="product-actions mt-2">
+                            <button class="btn btn-outline-primary btn-sm me-2 add-to-cart"
+                                data-id="13"
+                                data-name="Vòng Tay Bạc Hoa Mộng"
+                                data-image="img/vongtay/N13.png">🛒</button>
+                            <button class="btn btn-primary btn-sm buy-now"
+                                data-id="13"
+                                data-name="Vòng Tay Bạc Hoa Mộng"
+                                data-image="img/vongtay/N13.png">Mua ngay</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="product-card">
+                    <img src="img/vongtay/N13.png" alt="Vòng tay 14" />
+                    <div class="card-body">
+                        <h5 class="card-title">Vòng Tay Bạc Nhẹ Bước</h5>
+                        <p class="card-text">Thiết kế sang trọng, tinh tế.</p>
+                        <p class="product-price" data-price="230">$230</p>
+                        <div class="product-actions mt-2">
+                            <button class="btn btn-outline-primary btn-sm me-2 add-to-cart"
+                                data-id="14"
+                                data-name="Vòng Tay Bạc Nhẹ Bước"
+                                data-image="img/vongtay/N14.png">🛒</button>
+                            <button class="btn btn-primary btn-sm buy-now"
+                                data-id="14"
+                                data-name="Vòng Tay Bạc Nhẹ Bước"
+                                data-image="img/vongtay/N14.png">Mua ngay</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="product-card">
+                    <img src="img/vongtay/N14.png" alt="Vòng tay 15" />
+                    <div class="card-body">
+                        <h5 class="card-title">Vòng Tay Bạc Sương Sớm</h5>
+                        <p class="card-text">Thiết kế sang trọng, tinh tế.</p>
+                        <p class="product-price" data-price="240">$240</p>
+                        <div class="product-actions mt-2">
+                            <button class="btn btn-outline-primary btn-sm me-2 add-to-cart"
+                                data-id="15"
+                                data-name="Vòng Tay Bạc Sương Sớm"
+                                data-image="img/vongtay/N15.png">🛒</button>
+                            <button class="btn btn-primary btn-sm buy-now"
+                                data-id="15"
+                                data-name="Vòng Tay Bạc Sương Sớm"
+                                data-image="img/vongtay/N15.png">Mua ngay</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="product-card">
+                    <img src="img/vongtay/N15.png" alt="Vòng tay 16" />
+                    <div class="card-body">
+                        <h5 class="card-title">Vòng Tay Bạc Gió Hạ</h5>
+                        <p class="card-text">Thiết kế sang trọng, tinh tế.</p>
+                        <p class="product-price" data-price="250">$250</p>
+                        <div class="product-actions mt-2">
+                            <button class="btn btn-outline-primary btn-sm me-2 add-to-cart"
+                                data-id="16"
+                                data-name="Vòng Tay Bạc Gió Hạ"
+                                data-image="img/vongtay/N16.png">🛒</button>
+                            <button class="btn btn-primary btn-sm buy-now"
+                                data-id="16"
+                                data-name="Vòng Tay Bạc Gió Hạ"
+                                data-image="img/vongtay/N16.png">Mua ngay</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Add more sản phẩm nếu cần -->
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer style="background-color: #8B4513; color: white; padding: 40px 0;">
+  <!-- Logo họa tiết nhỏ ở giữa phía trên -->
+  <div style="text-align: center; margin-top: -10px; margin-bottom: 20px;">
+    <img src="test/Logo.png" alt="Logo nhỏ" style="height: 100px;">
+    <p>DESIGN & MADE TO ORDER</p>
+  </div>
+  <!-- Các cột thông tin footer -->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-sm-6 mb-4">
+        <h5 class="text-uppercase"><strong>CSKH</strong></h5>
+        <ul>
+          <li>Hotline: 0123.456.789</li>
+          <li>📞 0123.456.789</li>
+          <li>Email: support@cartier.com</li>
+          <li a href="#" style="color: white; text-decoration: underline;">Gửi yêu cầu hỗ trợ</a></li>
+        </ul>
+      </div>
+      <div class="col-md-3 col-sm-6 mb-4">
+        <h5 class="text-uppercase"><strong>CÔNG TY CHÚNG TÔI</strong></h5>
+        <ul>
+          <li>Tìm cửa hàng</li>
+          <li>Cơ hội nghề nghiệp</li>
+          <li>Cartier và Trách nhiệm xã hội doanh nghiệp</li>
+          <li>Ghi nhận công lao (Credits)</li>
+        </ul>
+      </div>
+      <div class="col-md-3 col-sm-6 mb-4">
+        <h5 class="text-uppercase"><strong>KHU VỰC PHÁP LÝ</strong></h5>
+        <ul>
+          <li>Điều khoản sử dụng</li>
+          <li>Chính sách bảo mật</li>
+          <li>Tuyên bố nhân quyền</li>
+          <li>Điều kiện bán hàng</li>
+        </ul>
+      </div>
+      <div class="col-md-3 col-sm-6 mb-4">
+        <h5 class="text-uppercase"><strong>ĐỊA CHỈ</strong></h5>
+        <ul>
+          <li>233A Phan Văn Trị, p.11, Q. Bình Thạnh, TP. Hồ Chí Minh</li>
+          <li>69/68 Đặng Thùy Trâm, p.13, Q. Bình Thạnh, TP. Hồ Chí Minh</li>
+          <li>45 Nguyễn Khắc Nhu, p. Cô Giang, Q. 1, TP. Hồ Chí Minh</li>
+        </ul>
+      </div>
+    </div>
+    <div style="text-align: center; margin-top: -10px; margin-bottom: 20px;">
+      <h5 class="text-uppercase"><strong>THEO DÕI CHÚNG TÔI</strong></h5>
+      <p>📷 Instagram 📘 Facebook  X (Twitter) </p>
+      <P>▶️ YouTube 📌 Pinterest</P>
+      <p>COPYRIGHT © 2025 Cartier</p>
+    </div>
+  </div>
+</footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="products.js"></script>
+    <script>
+function getProductDataFromButton(btn) {
+  const card = btn.closest('.product-card');
+  const priceSpan = card.querySelector('.product-price');
+  const price = priceSpan ? parseFloat(priceSpan.getAttribute('data-price')) : 0;
+  return {
+    id: btn.getAttribute('data-id'),
+    name: btn.getAttribute('data-name'),
+    price: price,
+    image: btn.getAttribute('data-image'),
+    quantity: 1
+  };
+}
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.add-to-cart').forEach(function(btn) {
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      const product = getProductDataFromButton(btn);
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      const existing = cart.find(item => item.id == product.id);
+      if (existing) {
+        existing.quantity += 1;
+        existing.price = product.price;
+      } else {
+        cart.push(product);
+      }
+      localStorage.setItem('cart', JSON.stringify(cart));
+      alert('Đã thêm vào giỏ hàng!');
+    });
+  });
+  document.querySelectorAll('.buy-now').forEach(function(btn) {
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      const product = getProductDataFromButton(btn);
+      localStorage.setItem('buynow', JSON.stringify([product]));
+      window.location.href = 'thanhtoan.html';
+    });
+  });
+});
+document.addEventListener("DOMContentLoaded", function () {
+  const searchIcon = document.querySelector('.search-toggle');
+  const searchBar = document.getElementById('search-bar');
+  const dropdown = document.getElementById('global-search-dropdown');
+  searchIcon.addEventListener('click', function (e) {
+    e.preventDefault();
+    if (searchBar.style.display === 'none' || !searchBar.style.display) {
+      searchBar.style.display = 'inline-block';
+      searchBar.focus();
+    } else {
+      searchBar.value = '';
+      searchBar.style.display = 'none';
+      dropdown.style.display = 'none';
+    }
+  });
+  searchBar.addEventListener('input', function () {
+    const query = searchBar.value.trim().toLowerCase();
+    if (!query) {
+      dropdown.style.display = 'none';
+      return;
+    }
+    const results = (window.allProducts || []).filter(p =>
+      p.name.toLowerCase().includes(query) ||
+      p.desc.toLowerCase().includes(query)
+    );
+    if (results.length === 0) {
+      dropdown.innerHTML = '<div style="padding: 10px; color: #888;">Không tìm thấy sản phẩm.</div>';
+      dropdown.style.display = 'block';
+      return;
+    }
+    dropdown.innerHTML = results.map(product => `
+      <div style="display: flex; align-items: center; padding: 8px 12px; border-bottom: 1px solid #eee; background: transparent;">
+        <img src="${product.image}" alt="${product.name}" style="width: 38px; height: 38px; object-fit: cover; border-radius: 6px; margin-right: 10px;">
+        <div style="flex:1;">
+          <div style="font-weight: 600; color: #8b5412;">${product.name}</div>
+          <div style="font-size: 0.97em; color: #8b5412;">${product.desc}</div>
+          <div style="color: #8b5412; font-weight: bold;">$${product.price}</div>
+        </div>
+        <button class="btn view-product" data-id="${product.id}" style="background:#8b5412;color:#fff;border:none;border-radius:6px;padding:4px 12px;margin-right:4px;">Xem</button>
+        <button class="btn add-to-cart" data-id="${product.id}" style="background:#8b5412;color:#fff;border:none;border-radius:6px;padding:4px 12px;">🛒</button>
+      </div>
+    `).join('');
+    dropdown.style.display = 'block';
+  });
+  document.addEventListener('click', function(e) {
+    if (e.target.classList.contains('add-to-cart')) {
+      const id = e.target.getAttribute('data-id');
+      const product = (window.allProducts || []).find(p => p.id == id);
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      const existing = cart.find(item => item.id == product.id);
+      if (existing) {
+        existing.quantity += 1;
+        existing.price = product.price;
+      } else {
+        cart.push({...product, quantity: 1});
+      }
+      localStorage.setItem('cart', JSON.stringify(cart));
+      alert('Đã thêm vào giỏ hàng!');
+    }
+    if (e.target.classList.contains('view-product')) {
+      const id = e.target.getAttribute('data-id');
+      window.location.href = `search.html#${id}`;
+    }
+    // Hide dropdown if click outside
+    if (!dropdown.contains(e.target) && e.target !== searchBar && e.target !== searchIcon) {
+      dropdown.style.display = 'none';
+    }
+  });
+  searchBar.addEventListener('blur', function() {
+    setTimeout(() => { dropdown.style.display = 'none'; }, 200);
+  });
+});
+</script>
+</body>
+</html>

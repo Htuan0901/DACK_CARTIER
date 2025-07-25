@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CARTIER - LIÊN HỆ</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f8f8f8;
+            color: #8B4513;
+        }
+        .top-line {
+            background-color: #000;
+            height: 3px;
+        }
+        .main-header {
+            background-color: #fff;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .header-icon {
+            color: #8B4513;
+            font-size: 1.1em;
+            text-decoration: none;
+        }
+        .header-icon:hover {
+            color: #654321;
+        }
+        .logo-link {
+            text-decoration: none;
+            color: inherit;
+        }
+        .logo {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 5px;
+        }
+        .logo-text {
+            font-size: 1.2em;
+            font-weight: 700;
+            color: #8B4513;
+            display: block;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .tagline {
+            font-size: 13px;
+            color: #A0522D;
+            display: block;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .main-nav {
+            background-color: #fff;
+            color: #8B4513;
+            padding: 10px 0;
+            font-weight: 600;
+            border-bottom: 1px solid #eee;
+        }
+        .main-nav .nav-link {
+            color: #8B4513;
+            padding: 8px 25px;
+            font-size: 1.07em;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+        .main-nav .nav-link.active,
+        .main-nav .nav-link:hover {
+            background-color: transparent;
+            color: #8B4513;
+            border-radius: 0;
+            border-bottom: 2px solid #8B4513;
+        }
+        .breadcrumbs {
+            background-color: #f2f2f2;
+            padding: 15px 0;
+            font-size: 0.9em;
+            color: #8B4513;
+        }
+        .breadcrumbs a {
+            color: #8B4513;
+            text-decoration: none;
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+            color: #654321;
+        }
+        .contact-section {
+            padding: 50px 0;
+        }
+        .contact-title {
+            font-size: 2em;
+            font-weight: 600;
+            margin-bottom: 25px;
+            color: #8B4513;
+            text-align: center;
+        }
+        .contact-form-container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(139, 69, 19, 0.2);
+            margin-bottom: 30px;
+        }
+        .contact-form-container .form-label {
+            color: #8B4513;
+            font-weight: 600;
+        }
+        .contact-form-container .form-control {
+            border-color: #8B4513;
+            color: #8B4513;
+        }
+        .contact-form-container .form-control:focus {
+            border-color: #654321;
+            box-shadow: 0 0 5px rgba(139, 69, 19, 0.3);
+        }
+        .contact-form-container .btn-primary {
+            background-color: #8B4513;
+            border-color: #8B4513;
+        }
+        .contact-form-container .btn-primary:hover {
+            background-color: #654321;
+            border-color: #654321;
+        }
+        .contact-info {
+            font-size: 1.1em;
+            color: #8B4513;
+            line-height: 1.6;
+        }
+        .contact-info h3 {
+            font-size: 1.5em;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #8B4513;
+        }
+        .contact-info ul {
+            list-style: none;
+            padding: 0;
+        }
+        .contact-info ul li {
+            margin-bottom: 10px;
+        }
+        .contact-info ul li i {
+            margin-right: 10px;
+            color: #A0522D;
+        }
+        .social-links a {
+            color: #8B4513;
+            font-size: 1.5em;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+        .social-links a:hover {
+            color: #654321;
+        }
+        #search-form {
+            transition: opacity 0.3s, visibility 0.3s;
+            opacity: 0;
+            visibility: hidden;
+        }
+        #search-form.show {
+            opacity: 1;
+            visibility: visible;
+            display: block !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-line"></div>
+
+    <!-- Main Header -->
+    <header class="main-header">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col d-flex align-items-center">
+                    <a href="dangnhap.html" class="header-icon"><i class="fas fa-user"></i></a>
+                    <div id="global-search-dropdown" style="position: absolute; right: 120px; top: 100px; z-index: 2000; min-width: 260px; background: #fff; border-radius: 10px; box-shadow: 0 2px 12px rgba(0,0,0,0.13); display: none; max-height: 350px; overflow-y: auto; border: 2px solid #8b5412;"></div>
+                </div>
+                <div class="col-auto logo-container">
+                    <a href="trangchu.html" class="logo-link text-center">
+                        <img src="test/Logo.png" alt="CARTIER Logo" class="logo d-block mx-auto">
+                        <span class="logo-text d-block"></span>
+                        <small class="tagline d-block"><strong>BE UNIQUE, BE DIFFERENT</strong></small>
+                    </a>
+                </div>
+                <div class="col d-flex justify-content-end">
+                    <input type="text" id="search-bar" class="form-control form-control-sm d-inline-block ms-2" placeholder="Tìm sản phẩm..." style="width: 180px; max-width: 40%; display: none; vertical-align: middle; height: 32px; padding: 2px 8px; font-size: 0.95em; border-radius: 16px; border: 1px solid #ccc; background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
+                    <a href="search.html" class="header-icon ms-3 search-toggle"><i class="fas fa-search"></i></a>
+                    <a href="giohang.html" class="header-icon" style="margin-left: 24px;"><i class="fas fa-box"></i></a>
+                </div>
+            </div>
+        </div>
+        <form id="search-form" class="d-none position-absolute top-100 start-0 w-100 p-3 bg-white shadow" style="z-index: 1050;">
+            <div class="container">
+                <div class="input-group">
+                    <input type="text" class="form-control" id="search-input" placeholder="Tìm sản phẩm...">
+                    <button class="btn btn-outline-secondary" type="submit">Tìm</button>
+                </div>
+            </div>
+        </form>
+    </header>
+
+    <!-- Main Navigation -->
+    <nav class="main-nav">
+        <div class="container">
+            <ul class="nav justify-content-center">
+                <li class="nav-item">
+                    <a class="nav-link" href="trangchu.html">TRANG CHỦ</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="trangsuc.html" id="navbarDropdownTrangSuc" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        TRANG SỨC
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownTrangSuc">
+                        <li><a class="dropdown-item" href="nhan.html">Nhẫn</a></li>
+                        <li><a class="dropdown-item" href="daychuyen.html">Dây chuyền</a></li>
+                        <li><a class="dropdown-item" href="dongho.html">Đồng hồ</a></li>
+                        <li><a class="dropdown-item" href="bongtai.html">Bông tai</a></li>
+                        <li><a class="dropdown-item" href="vongtay.html">Vòng tay</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="khuyenmai.html">KHUYẾN MÃI</a></li>
+                <li class="nav-item"><a class="nav-link" href="bosuutap.html">BỘ SƯU TẬP</a></li>
+                <li class="nav-item"><a class="nav-link" href="thongtin.html">THÔNG TIN</a></li>
+                <li class="nav-item"><a class="nav-link active" href="contact.html">LIÊN HỆ</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Breadcrumbs -->
+    <div class="breadcrumbs">
+        <div class="container">
+            <a href="trangchu.html"><i class="fas fa-home"></i> TRANG CHỦ</a> / LIÊN HỆ
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <div class="contact-section">
+        <div class="container">
+            <h2 class="contact-title">LIÊN HỆ VỚI CHÚNG TÔI</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="contact-form-container">
+                        <h3>Gửi tin nhắn</h3>
+                        <form id="contact-form">
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Họ và tên</label>
+                                <input type="text" class="form-control" id="name" name="name" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email" name="email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="subject" class="form-label">Chủ đề</label>
+                                <input type="text" class="form-control" id="subject" name="subject" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="message" class="form-label">Tin nhắn</label>
+                                <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Gửi</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="contact-info">
+                        <h3>Thông tin liên hệ</h3>
+                        <ul>
+                            <li><i class="fas fa-phone"></i>Hotline: 0123.456.789</li>
+                            <li><i class="fas fa-envelope"></i>Email: support@cartier.com</li>
+                            <li><i class="fas fa-map-marker-alt"></i>233A Phan Văn Trị, p.11, Q. Bình Thạnh, TP. Hồ Chí Minh</li>
+                            <li><i class="fas fa-map-marker-alt"></i>69/68 Đặng Thùy Trâm, p.13, Q. Bình Thạnh, TP. Hồ Chí Minh</li>
+                            <li><i class="fas fa-map-marker-alt"></i>45 Nguyễn Khắc Nhu, p. Cô Giang, Q. 1, TP. Hồ Chí Minh</li>
+                        </ul>
+                        <h3>Theo dõi chúng tôi</h3>
+                        <div class="social-links">
+                            <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                            <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+                            <a href="https://x.com" target="_blank"><i class="fab fa-x-twitter"></i></a>
+                            <a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
+                            <a href="https://pinterest.com" target="_blank"><i class="fab fa-pinterest"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer style="background-color: #8B4513; color: white; padding: 40px 0;">
+        <div style="text-align: center; margin-top: -10px; margin-bottom: 20px;">
+            <img src="test/Logo.png" alt="Logo nhỏ" style="height: 100px;">
+            <p>DESIGN & MADE TO ORDER</p>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <h5 class="text-uppercase"><strong>CSKH</strong></h5>
+                    <ul>
+                        <li>Hotline: 0123.456.789</li>
+                        <li>📞 0123.456.789</li>
+                        <li>Email: support@cartier.com</li>
+                        <li><a href="#" style="color: white; text-decoration: underline;">Gửi yêu cầu hỗ trợ</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <h5 class="text-uppercase"><strong>CÔNG TY CHÚNG TÔI</strong></h5>
+                    <ul>
+                        <li>Tìm cửa hàng</li>
+                        <li>Cơ hội nghề nghiệp</li>
+                        <li>Cartier và Trách nhiệm xã hội doanh nghiệp</li>
+                        <li>Ghi nhận công lao (Credits)</li>
+                    </ul>
+                </div>
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <h5 class="text-uppercase"><strong>KHU VỰC PHÁP LÝ</strong></h5>
+                    <ul>
+                        <li>Điều khoản sử dụng</li>
+                        <li>Chính sách bảo mật</li>
+                        <li>Tuyên bố nhân quyền</li>
+                        <li>Điều kiện bán hàng</li>
+                    </ul>
+                </div>
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <h5 class="text-uppercase"><strong>ĐỊA CHỈ</strong></h5>
+                    <ul>
+                        <li>233A Phan Văn Trị, p.11, Q. Bình Thạnh, TP. Hồ Chí Minh</li>
+                        <li>69/68 Đặng Thùy Trâm, p.13, Q. Bình Thạnh, TP. Hồ Chí Minh</li>
+                        <li>45 Nguyễn Khắc Nhu, p. Cô Giang, Q. 1, TP. Hồ Chí Minh</li>
+                    </ul>
+                </div>
+                <div style="text-align: center; margin-top: -10px; margin-bottom: 20px;">
+                    <h5 class="text-uppercase"><strong>THEO DÕI CHÚNG TÔI</strong></h5>
+                    <p>📷 Instagram 📘 Facebook  X (Twitter) </p>
+                    <p>▶️ YouTube 📌 Pinterest</p>
+                    <p>COPYRIGHT © 2025 Cartier</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="products.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const searchIcon = document.querySelector('.search-toggle');
+            const searchBar = document.getElementById('search-bar');
+            const dropdown = document.getElementById('global-search-dropdown');
+            searchIcon.addEventListener('click', function (e) {
+                e.preventDefault();
+                if (searchBar.style.display === 'none' || !searchBar.style.display) {
+                    searchBar.style.display = 'inline-block';
+                    searchBar.focus();
+                } else {
+                    searchBar.value = '';
+                    searchBar.style.display = 'none';
+                    dropdown.style.display = 'none';
+                }
+            });
+            searchBar.addEventListener('input', function () {
+                const query = searchBar.value.trim().toLowerCase();
+                if (!query) {
+                    dropdown.style.display = 'none';
+                    return;
+                }
+                const results = (window.allProducts || []).filter(p =>
+                    p.name.toLowerCase().includes(query) ||
+                    p.desc.toLowerCase().includes(query)
+                );
+                if (results.length === 0) {
+                    dropdown.innerHTML = '<div style="padding: 10px; color: #888;">Không tìm thấy sản phẩm.</div>';
+                    dropdown.style.display = 'block';
+                    return;
+                }
+                dropdown.innerHTML = results.map(product => `
+                    <div style="display: flex; align-items: center; padding: 8px 12px; border-bottom: 1px solid #eee; background: transparent;">
+                        <img src="${product.image}" alt="${product.name}" style="width: 38px; height: 38px; object-fit: cover; border-radius: 6px; margin-right: 10px;">
+                        <div style="flex:1;">
+                            <div style="font-weight: 600; color: #8b5412;">${product.name}</div>
+                            <div style="font-size: 0.97em; color: #8b5412;">${product.desc}</div>
+                            <div style="color: #8b5412; font-weight: bold;">$${product.price}</div>
+                        </div>
+                        <button class="btn view-product" data-id="${product.id}" style="background:#8b5412;color:#fff;border:none;border-radius:6px;padding:4px 12px;margin-right:4px;">Xem</button>
+                        <button class="btn add-to-cart" data-id="${product.id}" style="background:#8b5412;color:#fff;border:none;border-radius:6px;padding:4px 12px;">🛒</button>
+                    </div>
+                `).join('');
+                dropdown.style.display = 'block';
+            });
+            document.addEventListener('click', function(e) {
+                if (e.target.classList.contains('add-to-cart')) {
+                    const id = e.target.getAttribute('data-id');
+                    const product = (window.allProducts || []).find(p => p.id == id);
+                    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+                    const existing = cart.find(item => item.id == product.id);
+                    if (existing) {
+                        existing.quantity += 1;
+                        existing.price = product.price;
+                    } else {
+                        cart.push({...product, quantity: 1});
+                    }
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                    alert('Đã thêm vào giỏ hàng!');
+                }
+                if (e.target.classList.contains('view-product')) {
+                    const id = e.target.getAttribute('data-id');
+                    window.location.href = `search.html#${id}`;
+                }
+                if (!dropdown.contains(e.target) && e.target !== searchBar && e.target !== searchIcon) {
+                    dropdown.style.display = 'none';
+                }
+            });
+            searchBar.addEventListener('blur', function() {
+                setTimeout(() => { dropdown.style.display = 'none'; }, 200);
+            });
+            // Contact form submission
+            const contactForm = document.getElementById('contact-form');
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const subject = document.getElementById('subject').value;
+                const message = document.getElementById('message').value;
+                // Simulate form submission (replace with actual backend logic)
+                alert(`Cảm ơn bạn ${name} đã liên hệ! Chúng tôi sẽ phản hồi qua email ${email} sớm nhất có thể.`);
+                contactForm.reset();
+            });
+        });
+    </script>
+</body>
+</html>
