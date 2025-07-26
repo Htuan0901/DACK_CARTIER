@@ -2,12 +2,54 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>My DACK Website</title>
-    <link rel="stylesheet" href="style.css"> <!-- Nếu có CSS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CARTIER - WELCOME</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f8f8f8;
+            color: #8B4513;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .logo {
+            width: 150px;
+            height: 150px;
+            margin-bottom: 20px;
+        }
+        .welcome-text {
+            font-size: 3em;
+            font-weight: 700;
+            color: #8B4513;
+            text-align: center;
+            animation: fadeInScale 2s ease-in-out;
+        }
+        @keyframes fadeInScale {
+            0% { opacity: 0; transform: scale(0.9); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+        .redirect-link {
+            font-size: 1.2em;
+            color: #8B4513;
+            text-decoration: none;
+            margin-top: 20px;
+        }
+        .redirect-link:hover {
+            color: #654321;
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-    <h1>Welcome to DACK!</h1>
-    <p>Chuyển hướng đến trang khác: <a href="dongho.html">Đồng hồ</a></p>
-    <script src="products.js"></script>
+    <img src="test/Logo.png" alt="CARTIER Logo" class="logo">
+    <div class="welcome-text">WELCOME TO CARTIER</div>
+    <a href="trangchu.html" class="redirect-link">Click here to go to Trang Chủ</a>
 </body>
 </html>
