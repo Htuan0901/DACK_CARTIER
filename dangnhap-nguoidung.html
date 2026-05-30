@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Đăng nhập Người dùng - Cartier</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Open Sans', sans-serif;
+      min-height: 100vh;
+      background: linear-gradient(160deg, #fff9f5, #f0e6dc);
+      color: #8B4513;
+    }
+    .auth-wrap {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .auth-card {
+      width: 100%;
+      max-width: 440px;
+      background: #fff;
+      border-radius: 14px;
+      padding: 40px 36px;
+      box-shadow: 0 10px 32px rgba(139, 69, 19, 0.1);
+      border-top: 4px solid #8B4513;
+    }
+    .auth-badge {
+      display: inline-block;
+      background: #f5ebe0;
+      color: #8B4513;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 12px;
+    }
+    .auth-card h2 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 24px;
+    }
+    label { font-weight: 600; font-size: 0.9rem; }
+    .form-control {
+      border-color: #ddd;
+      margin-bottom: 14px;
+    }
+    .form-control:focus {
+      border-color: #8B4513;
+      box-shadow: 0 0 0 0.2rem rgba(139, 69, 19, 0.15);
+    }
+    #login-btn {
+      background: #8B4513;
+      border: none;
+      width: 100%;
+      padding: 10px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    #login-btn:hover { background: #654321; }
+    #signup-btn {
+      background: transparent;
+      border: 2px solid #8B4513;
+      color: #8B4513;
+      width: 100%;
+      padding: 10px;
+      font-weight: 600;
+    }
+    #signup-btn:hover { background: #f5ebe0; }
+    #logout-btn, #go-dashboard-btn {
+      width: 100%;
+      margin-top: 8px;
+      font-weight: 600;
+    }
+    #go-dashboard-btn {
+      background: #28a745;
+      border: none;
+      color: #fff;
+      padding: 10px;
+      display: none;
+    }
+    .auth-links {
+      margin-top: 20px;
+      font-size: 0.88rem;
+      text-align: center;
+    }
+    .auth-links a { color: #8B4513; }
+  </style>
+</head>
+<body data-auth-role="user" data-auth-page="login">
+  <div class="auth-wrap">
+    <div class="auth-card">
+      <span class="auth-badge"><i class="fas fa-user me-1"></i> Người dùng</span>
+      <h2>Đăng nhập / Đăng ký</h2>
+      <label for="email">Email</label>
+      <input type="email" id="email" class="form-control" placeholder="email@example.com" />
+      <label for="password">Mật khẩu</label>
+      <input type="password" id="password" class="form-control" placeholder="••••••••" />
+      <button type="button" id="login-btn" class="btn btn-primary">Đăng nhập</button>
+      <button type="button" id="signup-btn" class="btn">Đăng ký tài khoản mới</button>
+      <button type="button" id="go-dashboard-btn" class="btn">Vào trang cá nhân</button>
+      <button type="button" id="logout-btn" class="btn btn-secondary" style="display:none;">Đăng xuất</button>
+      <p id="current-user-info" class="mt-3 small text-muted text-center"></p>
+      <hr />
+      <label for="recovery-email">Quên mật khẩu?</label>
+      <input type="email" id="recovery-email" class="form-control" placeholder="Nhập email đã đăng ký" />
+      <button type="button" id="recovery-btn" class="btn btn-outline-secondary btn-sm w-100 mt-1">Lấy lại mật khẩu (demo)</button>
+      <div class="auth-links">
+        <a href="dangnhap.html">← Chọn loại tài khoản</a> ·
+        <a href="dangnhap-admin.html">Đăng nhập Admin</a> ·
+        <a href="trangchu.html">Cửa hàng</a>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="auth.js"></script>
+</body>
+</html>

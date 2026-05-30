@@ -1,0 +1,15 @@
+{
+  "name": "do-an-thiet-ke-giao-dien-nguoi-dung",
+  "version": "1.0.0",
+  "description": "Server don gian chay giao dien dangnhap.html",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
